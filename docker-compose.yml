@@ -32,7 +32,8 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
-
+  
+  
   code:
     image: lscr.io/linuxserver/code-server:latest
     restart: always
@@ -40,7 +41,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Madrid
-      PASSWORD: caca
+      PASSWORD: examplepass
     volumes:
       - ./:/config/workspace
       - code_config:/config
@@ -48,5 +49,16 @@ services:
       - "8443:8443"
 
 
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - "9443:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+      
 volumes:
   code_config:
+  portainer_data:
