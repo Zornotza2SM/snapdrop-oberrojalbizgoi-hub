@@ -40,7 +40,7 @@ services:
       PUID: 1000
       PGID: 1000
       TZ: Europe/Madrid
-      PASSWORD: examplepass
+      PASSWORD: caca
     volumes:
       - ./:/config/workspace
       - code_config:/config
